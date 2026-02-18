@@ -3,7 +3,7 @@ name: Cypress CI
 on:
   push:
     branches:
-      - main      # jab main branch pe push ho
+      - master      # jab main branch pe push ho
   pull_request:  # ya PR create ho
 
 jobs:
