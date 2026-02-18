@@ -3,8 +3,8 @@ name: Cypress CI
 on:
   push:
     branches:
-      - master      # jab main branch pe push ho
-  pull_request:  # ya PR create ho
+      - master
+  pull_request:
 
 jobs:
   run-tests:
@@ -20,7 +20,13 @@ jobs:
           node-version: 18
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
-      - name: Run Cypress tests
-        run: npx cypress run
+      - name: Install Cypress binary
+        run: npx cypress install
+
+      - name: Fix Cypress binary permission
+        run: chmod +x ./node_modules/.bin/cypress
+
+      - name: Run Cypress headless
+        run: npx cypress run --headless --browser chrome
