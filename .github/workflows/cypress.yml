@@ -42,3 +42,4 @@ jobs:
         with:
           browser: chrome   # Chrome browser me test run karega
           spec: cypress/e2e/Vandana_Rail/LoginMdr.cy.js  # Specific test file run karega
+          spec: cypress\e2e\Pages\AddUserPage.js
