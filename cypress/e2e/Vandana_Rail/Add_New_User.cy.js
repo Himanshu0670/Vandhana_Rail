@@ -1,4 +1,4 @@
-import AddUserPage from '../pages/AddUserPage';
+import AddUserPage from '../Pages/AddUserPage';
 
 describe('Add New User', () => {
 
@@ -10,7 +10,7 @@ describe('Add New User', () => {
 
     it('Add new user using fixture data', function () {
 
-        cy.fixture('userData').then((data) => {
+        cy.fixture('Userdata').then((data) => {
 
             addUser.clickAddUserButton();
             addUser.clickRoleField();
