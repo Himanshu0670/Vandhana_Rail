@@ -27,6 +27,10 @@ jobs:
 
       - name: Fix Cypress permissions
         run: chmod +x ./node_modules/.bin/cypress
+    
+      - name: Cypress run
+        uses: cypress-io/github-action@v6
+        with:
+          browser: chrome
 
-      - name: Run Cypress headless
-        run: npx cypress run --headless --browser chrome
+    
