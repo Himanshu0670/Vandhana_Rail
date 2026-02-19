@@ -28,9 +28,10 @@ jobs:
       - name: Fix Cypress permissions
         run: chmod +x ./node_modules/.bin/cypress
     
-      - name: Cypress run
+      - name: Run valid login test
         uses: cypress-io/github-action@v6
         with:
           browser: chrome
+          spec: cypress\e2e\Vandana_Rail\LoginMdr.cy.js
 
     
