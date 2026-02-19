@@ -41,5 +41,5 @@ jobs:
         uses: cypress-io/github-action@v6
         with:
           browser: chrome   # Chrome browser me test run karega
-          spec: cypress/e2e/Vandana_Rail/LoginMdr.cy.js  # Specific test file run karega
-          spec: cypress\e2e\Pages\AddUserPage.js
+          spec: cypress/e2e/Vandana_Rail/LoginMdr.cy.js, cypress/e2e/Vandana_Rail/Add_New_User.cy.js # Specific test file run karega
+                
