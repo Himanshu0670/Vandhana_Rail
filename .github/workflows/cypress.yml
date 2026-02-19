@@ -1,37 +1,44 @@
+# Workflow ka naam (GitHub Actions me show hoga)
 name: Cypress CI
 
+# Yeh batata hai workflow kab run hoga
 on:
   push:
     branches:
-      - master
-  pull_request:
+      - master      # Jab master branch me code push hoga tab run hoga
+  pull_request:      # Jab koi pull request create/update hogi tab bhi run hoga
 
+# Jobs section – yaha hum define karte hain kya execute hoga
 jobs:
-  run-tests:
-    runs-on: ubuntu-latest
+  run-tests:         # Job ka naam (custom naam hai)
+    runs-on: ubuntu-latest   # GitHub ka Linux virtual machine use karega
 
     steps:
+      # Step 1: Repository ka code runner machine par clone karega
       - name: Checkout code
         uses: actions/checkout@v4
 
+      # Step 2: Node.js environment setup karega
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version: 18   # Node.js version 18 install karega
 
+      # Step 3: Project dependencies install karega (package-lock.json ke according)
       - name: Install dependencies
         run: npm ci
 
+      # Step 4: Cypress ka binary download/install karega
       - name: Install Cypress binary
         run: npx cypress install
 
+      # Step 5: Cypress ko executable permission deta hai (Linux me required hota hai)
       - name: Fix Cypress permissions
         run: chmod +x ./node_modules/.bin/cypress
     
+      # Step 6: Cypress test run karega Chrome browser me
       - name: Run valid login test
         uses: cypress-io/github-action@v6
         with:
-          browser: chrome
-          spec: cypress/e2e/Vandana_Rail/LoginMdr.cy.js
-
-    
+          browser: chrome   # Chrome browser me test run karega
+          spec: cypress/e2e/Vandana_Rail/LoginMdr.cy.js  # Specific test file run karega
