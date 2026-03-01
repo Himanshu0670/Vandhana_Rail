@@ -41,5 +41,5 @@ jobs:
         uses: cypress-io/github-action@v6
         with:
           browser: chrome   # Chrome browser me test run karega
-          spec: cypress/support/step_definitions/Login_NegativeTest.js,cypress/support/step_definitions/LoginMdr.js # Specific test file run karega
+          spec: cypress/e2e/NegativeLoginCheck.feature,cypress/e2e/login.feature # Specific test file run karega
                 
