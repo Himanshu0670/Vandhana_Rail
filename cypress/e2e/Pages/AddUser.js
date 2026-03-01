@@ -5,7 +5,7 @@ class AddUserPage {
 
     clickRoleField() {
         cy.contains('label', 'Role')
-            .parent().find('[role="combobox"]').click()
+        .parent().find('[role="combobox"]').click()
         cy.get('[data-value]').eq(0).should('have.text', 'Admin');
         cy.get('[data-value]').eq(1).should('have.text', 'Data Champion');
         cy.get('[data-value]').eq(2).should('have.text', 'Fleet Manager');
