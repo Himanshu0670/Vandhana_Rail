@@ -23,3 +23,22 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+
+Cypress.Commands.add('login', () => {
+  cy.visit('/');
+  cy.url().should('include', '/login');
+  cy.contains('Email')
+    .click({ force: true })
+    .type('dinkar.gupta@vandhana.com');
+
+  cy.contains('Password')
+    .click({ force: true })
+    .type('Lattice@1234');
+
+  cy.get('.MuiButton-root').click({ force: true });
+
+  cy.get('#notistack-snackbar')
+    .should('be.visible')
+    .and('have.text', 'Logged in successfully!');
+});
